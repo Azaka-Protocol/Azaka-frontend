@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Asset, Server } from '@stellar/stellar-sdk';
+import { Asset } from '@stellar/stellar-sdk';
+import Server from '@stellar/stellar-sdk';
 import { getHorizonUrl } from './network';
 
 export interface AnchorInfo {
@@ -37,7 +38,7 @@ export const initiateWithdrawal = async (
   amount: string
 ): Promise<{ url: string; id: string }> => {
   const anchor = getAnchorForAsset(assetCode);
-  
+
   if (!anchor) {
     throw new Error(`No anchor found for asset ${assetCode}`);
   }
@@ -45,10 +46,13 @@ export const initiateWithdrawal = async (
   try {
     // In a real implementation, this would call the SEP-24 interactive flow
     // For now, we return a placeholder
-    const response = await axios.post(`${anchor.sep24Url}/sep24/transactions/withdraw/interactive`, {
-      asset_code: assetCode,
-      amount,
-    });
+    const response = await axios.post(
+      `${anchor.sep24Url}/sep24/transactions/withdraw/interactive`,
+      {
+        asset_code: assetCode,
+        amount,
+      }
+    );
 
     return {
       url: response.data.url,
@@ -62,11 +66,11 @@ export const initiateWithdrawal = async (
 
 export const getExchangeRate = async (
   baseAsset: string,
-  counterAsset: string = 'USD'
+  _counterAsset: string = 'USD'
 ): Promise<number> => {
   try {
     const server = new Server(getHorizonUrl());
-    
+
     // Get the orderbook for the asset pair
     const orderbook = await server
       .orderbook(
@@ -91,7 +95,7 @@ export const getExchangeRate = async (
     return fallbackRates[baseAsset] || 1.0;
   } catch (error) {
     console.error('Error fetching exchange rate:', error);
-    
+
     // Return fallback rates
     const fallbackRates: Record<string, number> = {
       USDC: 1.0,
@@ -102,10 +106,7 @@ export const getExchangeRate = async (
   }
 };
 
-export const getUsdEquivalent = async (
-  amount: number,
-  assetCode: string
-): Promise<number> => {
+export const getUsdEquivalent = async (amount: number, assetCode: string): Promise<number> => {
   if (assetCode === 'USDC') {
     return amount;
   }

@@ -8,24 +8,20 @@ export interface SubmitDocumentParams {
   ipfsUri: string;
 }
 
-export const submitDocument = async (params: SubmitDocumentParams): Promise<string> => {
-  const client = getAzakaClient();
-  
-  console.log('Submitting document:', params);
-  
+export const submitDocument = async (_params: SubmitDocumentParams): Promise<string> => {
+  getAzakaClient();
+
   // Simulate transaction
   return 'mock-submit-doc-tx-' + Date.now();
 };
 
-export const getDocuments = async (tradeId: string): Promise<Document[]> => {
-  const client = getAzakaClient();
-  
-  console.log('Fetching documents for trade:', tradeId);
-  
+export const getDocuments = async (_tradeId: string): Promise<Document[]> => {
+  getAzakaClient();
+
   // Mock data
   const mockDocuments: Document[] = [
     {
-      tradeId,
+      tradeId: _tradeId,
       docType: DocumentType.BillOfLading,
       hash: 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6',
       ipfsUri: 'ipfs://QmXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXx',
@@ -35,7 +31,7 @@ export const getDocuments = async (tradeId: string): Promise<Document[]> => {
       signers: ['GCZYLNGU4CA5NAWBAVTHMZH4JKXPKR3NKDKZ7XQXQXQXQXQXQXQXQXQX'],
     },
     {
-      tradeId,
+      tradeId: _tradeId,
       docType: DocumentType.CertificateOfOrigin,
       hash: 'b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a1',
       ipfsUri: 'ipfs://QmYyYyYyYyYyYyYyYyYyYyYyYyYyYyYyYyYyYyYyYyYy',
@@ -45,7 +41,7 @@ export const getDocuments = async (tradeId: string): Promise<Document[]> => {
       signers: ['GCZYLNGU4CA5NAWBAVTHMZH4JKXPKR3NKDKZ7XQXQXQXQXQXQXQXQXQX'],
     },
     {
-      tradeId,
+      tradeId: _tradeId,
       docType: DocumentType.InspectionCertificate,
       hash: '',
       ipfsUri: '',
@@ -55,18 +51,13 @@ export const getDocuments = async (tradeId: string): Promise<Document[]> => {
       signers: [],
     },
   ];
-  
+
   return mockDocuments;
 };
 
-export const verifyDocument = async (
-  tradeId: string,
-  docType: DocumentType
-): Promise<string> => {
-  const client = getAzakaClient();
-  
-  console.log('Verifying document:', tradeId, docType);
-  
+export const verifyDocument = async (_tradeId: string, _docType: DocumentType): Promise<string> => {
+  getAzakaClient();
+
   // Simulate transaction
   return 'mock-verify-doc-tx-' + Date.now();
 };

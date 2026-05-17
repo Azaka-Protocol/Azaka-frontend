@@ -5,7 +5,6 @@ import {
   requestAccess,
   setAllowed,
 } from '@stellar/freighter-api';
-import { Transaction, FeeBumpTransaction } from '@stellar/stellar-sdk';
 
 export interface FreighterWallet {
   address: string;
@@ -22,7 +21,7 @@ export const connectFreighter = async (): Promise<string> => {
   }
 
   const connected = await isConnected();
-  
+
   if (!connected) {
     await setAllowed();
     await requestAccess();

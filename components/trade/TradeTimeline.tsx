@@ -3,7 +3,6 @@
 import { TradeEvent } from '@/lib/azaka/types';
 import { AddressDisplay } from '@/components/shared/AddressDisplay';
 import { formatDateTime } from '@/lib/utils/format';
-import clsx from 'clsx';
 
 interface TradeTimelineProps {
   events: TradeEvent[];
@@ -49,11 +48,7 @@ const getEventLabel = (eventType: string): string => {
 
 export const TradeTimeline = ({ events }: TradeTimelineProps) => {
   if (events.length === 0) {
-    return (
-      <div className="text-center py-8 text-text-muted">
-        No events yet
-      </div>
-    );
+    return <div className="text-center py-8 text-text-muted">No events yet</div>;
   }
 
   return (
@@ -64,19 +59,13 @@ export const TradeTimeline = ({ events }: TradeTimelineProps) => {
             <div className="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-xl">
               {getEventIcon(event.eventType)}
             </div>
-            {index < events.length - 1 && (
-              <div className="w-0.5 flex-1 bg-border mt-2" />
-            )}
+            {index < events.length - 1 && <div className="w-0.5 flex-1 bg-border mt-2" />}
           </div>
 
           <div className="flex-1 pb-8">
             <div className="flex items-start justify-between mb-1">
-              <h4 className="font-medium text-text-primary">
-                {getEventLabel(event.eventType)}
-              </h4>
-              <span className="text-sm text-text-muted">
-                {formatDateTime(event.timestamp)}
-              </span>
+              <h4 className="font-medium text-text-primary">{getEventLabel(event.eventType)}</h4>
+              <span className="text-sm text-text-muted">{formatDateTime(event.timestamp)}</span>
             </div>
 
             <div className="text-sm text-text-secondary mb-2">

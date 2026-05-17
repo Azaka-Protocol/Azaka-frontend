@@ -11,25 +11,21 @@ export interface CreateTradeParams {
   confirmingBank?: string;
 }
 
-export const createTrade = async (params: CreateTradeParams): Promise<string> => {
-  const client = getAzakaClient();
-  
+export const createTrade = async (_params: CreateTradeParams): Promise<string> => {
+  getAzakaClient();
+
   // In production, this would call the Azaka SDK to create a trade
   // For now, we return a mock trade ID
-  console.log('Creating trade with params:', params);
-  
-  // Simulate contract call
   const tradeId = `trade-${Date.now()}`;
-  
+
   return tradeId;
 };
 
 export const getTrade = async (tradeId: string): Promise<Trade | null> => {
-  const client = getAzakaClient();
-  
+  getAzakaClient();
+
   // In production, this would call the Azaka SDK to fetch trade data
-  console.log('Fetching trade:', tradeId);
-  
+
   // Mock data for development
   const mockTrade: Trade = {
     id: tradeId,
@@ -47,19 +43,18 @@ export const getTrade = async (tradeId: string): Promise<Trade | null> => {
     createdAt: Date.now() - 86400000 * 5, // 5 days ago
     expiryDate: Date.now() + 86400000 * 25, // 25 days from now
   };
-  
+
   return mockTrade;
 };
 
 export const getTradesByParticipant = async (
   address: string,
-  role?: 'exporter' | 'importer' | 'bank'
+  _role?: 'exporter' | 'importer' | 'bank'
 ): Promise<Trade[]> => {
-  const client = getAzakaClient();
-  
+  getAzakaClient();
+
   // In production, this would call the Azaka SDK to fetch trades
-  console.log('Fetching trades for participant:', address, 'role:', role);
-  
+
   // Mock data for development
   const mockTrades: Trade[] = [
     {
@@ -91,15 +86,13 @@ export const getTradesByParticipant = async (
       expiryDate: Date.now() + 86400000 * 20,
     },
   ];
-  
+
   return mockTrades;
 };
 
-export const cancelTrade = async (tradeId: string): Promise<string> => {
-  const client = getAzakaClient();
-  
-  console.log('Cancelling trade:', tradeId);
-  
+export const cancelTrade = async (_tradeId: string): Promise<string> => {
+  getAzakaClient();
+
   // Simulate transaction
   return 'mock-cancel-tx-' + Date.now();
 };

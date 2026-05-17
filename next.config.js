@@ -1,11 +1,9 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp'],
   },
-  webpack: (config) => {
+  webpack: config => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
@@ -16,4 +14,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

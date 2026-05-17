@@ -49,13 +49,11 @@ class AzakaClientWrapper {
   // Placeholder methods - these would call the actual Azaka SDK
   async simulateTransaction(xdr: string): Promise<string> {
     // In production, this would use the Azaka SDK to simulate the transaction
-    console.log('Simulating transaction:', xdr);
     return xdr;
   }
 
-  async submitTransaction(signedXdr: string): Promise<string> {
+  async submitTransaction(_signedXdr: string): Promise<string> {
     // In production, this would use the Azaka SDK to submit the transaction
-    console.log('Submitting transaction:', signedXdr);
     return 'mock-tx-hash-' + Date.now();
   }
 }

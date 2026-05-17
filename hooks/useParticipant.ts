@@ -3,8 +3,6 @@ import { Participant, ParticipantRole } from '@/lib/azaka/types';
 
 // Mock function - in production this would call the registry contract
 const getParticipant = async (address: string): Promise<Participant | null> => {
-  console.log('Fetching participant:', address);
-  
   // Mock data
   const mockParticipant: Participant = {
     address,
@@ -13,7 +11,7 @@ const getParticipant = async (address: string): Promise<Participant | null> => {
     verified: true,
     registeredAt: Date.now() - 86400000 * 30,
   };
-  
+
   return mockParticipant;
 };
 

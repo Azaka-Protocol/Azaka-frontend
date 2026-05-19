@@ -1,4 +1,4 @@
-# Contributing to Azaka Web
+# Contributing to Azaka Frontend
 
 Thank you for your interest in contributing to Azaka Web! This document provides guidelines and instructions for contributing.
 
@@ -16,7 +16,7 @@ Thank you for your interest in contributing to Azaka Web! This document provides
 1. **Fork and clone the repository**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/azaka-web.git
+git clone https://github.com/YOUR_USERNAME/Azaka-frontend.git
 cd azaka-web
 ```
 
@@ -60,7 +60,7 @@ NEXT_PUBLIC_SOROBAN_RPC_URL=http://localhost:8000/soroban/rpc
 
 3. **Deploy contracts locally**
 
-Follow the instructions in the [Azaka contracts repository](https://github.com/azaka-finance/azaka-contracts) to deploy contracts to your local node.
+Follow the instructions in the [Azaka contracts repository](https://github.com/Azaka-Protocol/Azaka-contracts) to deploy contracts to your local node.
 
 4. **Update contract IDs in `.env.local`**
 
@@ -145,16 +145,7 @@ Include:
 4. **Testing**: What you tested and how
 5. **Screenshots**: For UI changes
 
-## Issue Labels
 
-- `good first issue` - Good for newcomers
-- `dashboard` - Dashboard-related changes
-- `components` - Component updates
-- `wallet` - Wallet integration
-- `design` - Design and styling
-- `bug` - Bug fixes
-- `enhancement` - New features
-- `documentation` - Documentation updates
 
 ## Testing Guidelines
 
@@ -188,12 +179,6 @@ Before submitting a PR, manually test:
 2. **Peer review** - At least one approval required
 3. **Maintainer review** - Final review by maintainer
 4. **Merge** - Squash and merge to main
-
-## Getting Help
-
-- **Discord**: Join our [Discord server](https://discord.gg/azaka)
-- **GitHub Discussions**: Ask questions in [Discussions](https://github.com/azaka-finance/azaka-web/discussions)
-- **Issues**: Report bugs in [Issues](https://github.com/azaka-finance/azaka-web/issues)
 
 ## License
 

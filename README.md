@@ -1,8 +1,7 @@
-# Azaka Web
+# Azaka Frontend
 
 Official frontend for the Azaka decentralised trade finance protocol on Stellar. A production-grade Next.js dApp with role-based dashboards for exporters, importers, banks, and freight forwarders/inspectors.
 
-![Azaka Web](./public/assets/screenshot-placeholder.png)
 
 ## Overview
 
@@ -45,8 +44,8 @@ Azaka brings letter of credit trade finance to the blockchain. Secure escrow, au
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/azaka-finance/azaka-web.git
-cd azaka-web
+git clone https://github.com/your-github-name/Azaka-frontend.git
+cd azaka-frontend
 ```
 
 2. **Install dependencies**
@@ -107,7 +106,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 The Azaka smart contracts are deployed on Stellar Testnet. To connect:
 
-1. Get contract IDs from the [Azaka smart contract repository](https://github.com/azaka-finance/azaka-contracts)
+1. Get contract IDs from the [Azaka smart contract repository](https://github.com/Azaka-Protocol/Azaka-Contracts)
 2. Add them to your `.env.local` file
 3. Ensure your Freighter wallet is connected to Stellar Testnet
 4. Fund your testnet account using the [Stellar Laboratory](https://laboratory.stellar.org/#account-creator?network=test)
@@ -115,7 +114,7 @@ The Azaka smart contracts are deployed on Stellar Testnet. To connect:
 ## Project Structure
 
 ```
-azaka-web/
+azaka-frontend/
 ├── app/                    # Next.js app router pages
 │   ├── (auth)/            # Authentication pages
 │   ├── dashboard/         # Role-based dashboards
@@ -174,8 +173,7 @@ MIT License - see [LICENSE](./LICENSE) for details.
 
 ## Links
 
-- [Documentation](https://docs.azaka.finance)
-- [Smart Contracts](https://github.com/azaka-finance/azaka-contracts)
+- [Smart Contracts](https://github.com/Azaka-Protocol/Azaka-Contracts)
 - [Stellar](https://stellar.org)
 - [Freighter Wallet](https://freighter.app)
 
